@@ -1,0 +1,4 @@
+# Dependencias del proyecto Nutritional-e-commerce
+fastapi
+uvicorn
+pydantic
