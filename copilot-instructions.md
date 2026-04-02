@@ -82,7 +82,7 @@ class AIProvider(str, Enum):
 ### System prompt desde skills/
 ```python
 loader = ContextLoader()
-system_prompt = loader.load_skill()  # skills/asistente-tienda.md
+system_prompt = loader.load_skill()  # skills/asistente.md
 ```
 
 ### Knowledge desde knowledge/

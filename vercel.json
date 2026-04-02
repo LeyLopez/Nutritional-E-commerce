@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "src/assistant.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/assistant", "dest": "/src/assistant.py" },
+    { "src": "/", "dest": "/src/assistant.py" }
+  ]
+}
