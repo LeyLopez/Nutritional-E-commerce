@@ -1,10 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "src/rag_assistant_v2.py", "use": "@vercel/python" }
+    { "src": "main.py", "use": "@vercel/python" }
   ],
   "routes": [
-    { "src": "/assistant", "dest": "/src/rag_assistant_v2.py" },
-    { "src": "/", "dest": "/src/rag_assistant_v2.py" }
+    { "src": "/(.*)", "dest": "/main.py" }
   ]
 }
