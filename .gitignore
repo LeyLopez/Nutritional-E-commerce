@@ -1,0 +1,85 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# FastAPI/Uvicorn
+*.db
+
+# Vercel
+.vercel/
+
+# Node (if using npm)
+node_modules/
+.next/
+
+# Old/Legacy files
+src/rag_assistant.py
+src/rag_assistant_v2.py
+src/assistant.py
+src/indexer.py
+src/data/
+src/rag_assistant_v2.py
+src/services/rag_service.py
+src/services/vector_index.py
+src/infrastructure/google_service.py
+src/infrastructure/ai_factory.py
+src/infrastructure/document_loader.py
+src/domain/enums.py
+init.py
+start.py
+deploy-vercel.yml
+.github/workflows/deploy-vercel.yml
+ARCHITECTURE.md
+DEPLOYMENT_CHECKLIST.md
+TEST_ENDPOINTS.md
+SWAGGER_TESTING_GUIDE.md

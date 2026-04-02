@@ -1,0 +1,91 @@
+```
+╔════════════════════════════════════════════════════════════════════════╗
+║          NUTRITIONAL E-COMMERCE — ASISTENTE IA                        ║
+║              (Estructura idéntica a Tierra de Agricultores AI)         ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+┌─ ARCHIVOS PRINCIPALES ─────────────────────────────────────────────────┐
+│                                                                         │
+│  main.py                    FastAPI app con 2 endpoints                │
+│    ├─ GET /                 Health check                               │
+│    ├─ POST /chat            Chat simple                                │
+│    └─ POST /chat/con-historial  Chat con historial                    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ ARQUITECTURA CLEAN ───────────────────────────────────────────────────┐
+│                                                                         │
+│  src/domain/                (No depende de frameworks)                  │
+│    └─ schemas.py            ChatRequest, ChatResponse, AIProvider      │
+│                                                                         │
+│  src/infrastructure/        (Adaptadores externos)                      │
+│    ├─ context_loader.py     Lee skills/ + knowledge/                   │
+│    ├─ model_factory.py      Factory Pattern (Dependency Inversion)     │
+│    ├─ gemini_adapter.py     ✓ Google Gemini implementado               │
+│    ├─ openai_adapter.py     Stub                                        │
+│    ├─ claude_adapter.py     Stub                                        │
+│    ├─ deepseek_adapter.py   Stub                                        │
+│    └─ langchain_adapter.py  Stub                                        │
+│                                                                         │
+│  src/services/              (Lógica de negocio)                         │
+│    └─ chat_service.py       Orquesta: request → adapter → response     │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ RAG SIMPLIFICADO ─────────────────────────────────────────────────────┐
+│                                                                         │
+│  skills/asistente.md        ← Instrucciones del asistente              │
+│  knowledge/*.md             ← Tus datos (productos, envíos, etc)       │
+│                                                                         │
+│  ContextLoader              Lee ambas carpetas                          │
+│    ↓                                                                     │
+│  System Prompt Completo     (skill + knowledge)                        │
+│    ↓                                                                     │
+│  Google Gemini API          Genera respuesta contextualizada           │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ FLUJO DE UNA PETICIÓN ────────────────────────────────────────────────┐
+│                                                                         │
+│  1. Cliente:  POST /chat {"pregunta": "...", "provider": "gemini"}    │
+│                                                                         │
+│  2. FastAPI:  Dependency Injection → get_chat_service()               │
+│                                                                         │
+│  3. ContextLoader: Lee skills/ + knowledge/ → system_prompt           │
+│                                                                         │
+│  4. ChatService: request → AIModelFactory.create(provider)            │
+│                                                                         │
+│  5. GeminiAdapter: complete(system_prompt, user_message, history)     │
+│                                                                         │
+│  6. Gemini API: Genera respuesta con contexto                         │
+│                                                                         │
+│  7. Response: {"respuesta": "...", "provider": "gemini", ...}         │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─ PRÓXIMOS PASOS ───────────────────────────────────────────────────────┐
+│                                                                         │
+│  ⚠️  REVOCA TU API KEY EXPUESTA                                         │
+│      https://aistudio.google.com/apikey → Elimina la antigua           │
+│      https://aistudio.google.com/apikey → Crea una nueva               │
+│                                                                         │
+│  1️⃣  Configura .env con tu nueva clave                                 │
+│      GOOGLE_API_KEY=...                                                │
+│                                                                         │
+│  2️⃣  Instala dependencias                                              │
+│      pip install -r requirements.txt                                   │
+│                                                                         │
+│  3️⃣  Ejecuta el servidor                                               │
+│      uvicorn main:app --reload                                         │
+│                                                                         │
+│  4️⃣  Prueba en Swagger                                                 │
+│      http://localhost:8000/docs                                        │
+│                                                                         │
+│  5️⃣  Personaliza skills/ y knowledge/                                  │
+│                                                                         │
+│  6️⃣  Deploy en Vercel                                                  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+✅ ¡Todo listo para probar y desplegar!
+```

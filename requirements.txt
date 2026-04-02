@@ -1,4 +1,5 @@
-# Dependencias del proyecto Nutritional-e-commerce
 fastapi
 uvicorn
 pydantic
+python-dotenv
+google-genai
