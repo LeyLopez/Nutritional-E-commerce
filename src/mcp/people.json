@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cristian Lopez",
+    "email": "cristian@example.com",
+    "ciudad": "Bogota"
+  },
+  {
+    "id": 2,
+    "nombre": "Ana Maria",
+    "email": "ana@example.com",
+    "ciudad": "Medellin"
+  },
+  {
+    "id": 3,
+    "nombre": "Carlos Perez",
+    "email": "carlos@example.com",
+    "ciudad": "Cali"
+  },
+  {
+    "id": 4,
+    "nombre": "Cristina Gomez",
+    "email": "cristina@example.com",
+    "ciudad": "Barranquilla"
+  }
+]
