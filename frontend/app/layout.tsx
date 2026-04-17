@@ -13,8 +13,8 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "E-commerce Nutricional | Ethereal Atelier",
-  description: "Interfaz editorial inspirada en el sistema de diseno Ethereal Atelier.",
+  title: "NutriShop | E-commerce Nutricional",
+  description: "Interfaz editorial inspirada en NutriShop.",
 };
 
 export default function RootLayout({
