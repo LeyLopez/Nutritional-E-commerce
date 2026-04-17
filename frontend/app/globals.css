@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --surface: #f9f9f9;
+  --surface-low: #f2f4f4;
+  --surface-lowest: #ffffff;
+  --surface-highest: #dfe3e4;
+  --on-surface: #2f3334;
+  --primary: #526447;
+  --primary-dim: #46583c;
+  --primary-container: #d4e9c4;
+  --secondary: #7a574d;
+  --secondary-container: #ffdbd1;
+  --on-primary: #ecffdd;
+  --on-secondary-container: #6b4a40;
+  --outline-variant: #afb3b3;
+}
+
+@theme inline {
+  --color-background: var(--surface);
+  --color-foreground: var(--on-surface);
+  --font-sans: var(--font-manrope);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--on-surface);
+  font-family: var(--font-manrope), sans-serif;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(212, 233, 196, 0.45), transparent 30%),
+    radial-gradient(circle at 88% 12%, rgba(255, 219, 209, 0.42), transparent 28%),
+    linear-gradient(180deg, #f9f9f9 0%, #f2f4f4 100%);
+}
+
+h1,
+h2,
+h3,
+.font-editorial {
+  font-family: var(--font-noto-serif), serif;
+}
+
+.glass-panel {
+  background: rgba(249, 249, 249, 0.7);
+  backdrop-filter: blur(20px);
+}
+
+.ambient-shadow {
+  box-shadow: 0 12px 40px rgba(47, 51, 52, 0.06);
+}
+
+.ghost-outline {
+  border: 1px solid color-mix(in srgb, var(--outline-variant) 15%, transparent);
+}
